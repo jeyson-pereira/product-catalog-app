@@ -1,0 +1,26 @@
+<h1 class="text-5xl font-bold">Products List</h1>
+<div class="flex flex-wrap justify-center items-center my-10 gap-6">
+  <!-- Content list -->
+  <div *ngFor="let product of products">
+    <!-- TODO: Add routerLink for navigate to product details -->
+    <div
+      class="max-w-sm rounded overflow-hidden shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+    >
+      <div class="w-full">
+        <img src="{{ product.imageUrl }}" [alt]="product.name" />
+      </div>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ product.name }}</div>
+        <p class="text-gray-700 text-base">{{ product.description }}</p>
+        <p></p>
+        <div class="pt-4 pb-2">
+          <p
+            class="inline-block px-3 py-1 text-white rounded-full bg-cyan-800"
+          >
+            $ {{ product.price }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
