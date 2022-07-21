@@ -1,0 +1,44 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6" *ngIf="!isLoading">
+  <div class="flex flex-col md:flex-row -mx-4">
+    <div class="md:flex-1 px-4">
+      <div x-data="{ image: 1 }" x-cloak>
+        <div class="mb-4">
+          <img
+            class="w-full select-none rounded"
+            src="{{ product.imageUrl }}"
+            alt="{{ product.name }}"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="md:flex-1 px-4">
+      <h2
+        class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl"
+      >
+        {{ product.name }}
+      </h2>
+      <div class="flex items-center space-x-4 my-4">
+        <div class="flex flex-row items-center">
+          <div class="rounded-lg bg-gray-100 flex py-2 px-3">
+            <span class="text-green-400 mr-1 mt-1">$</span>
+            <span class="font-bold text-green-500 text-3xl">
+              {{ product.price }}
+            </span>
+          </div>
+          <div class="mx-2">
+            <p *ngIf="product.quantity !== '0'" class="font-semibold text-green-500">{{product.quantity}} in stock</p>
+            <p *ngIf="product.quantity === '0'" class="font-semibold text-red-600">Out of stock</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-gray-500">{{ product.description }}</p>
+      <button
+        type="button"
+        class="mt-2 h-14 px-6 py-2 font-semibold rounded-xl bg-green-500 disabled:opacity-50 text-white cursor-not-allowed"
+        disabled
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
